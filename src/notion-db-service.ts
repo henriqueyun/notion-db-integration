@@ -1,9 +1,38 @@
 import client from './client'
+import { CreateCompanyCampaignDTO, UpdateCompanyCampaignDTO } from './types/CompanyCampaign'
+import { pageParametersPropertiesFactory } from './factory/PageParametersPropertiesFactory'
 
-const find = async () => {
-	return await client.databases.query({
-		database_id: process.env.DB_ID
+const create = async (body: CreateCompanyCampaignDTO) => {
+	return await client.pages.create({
+		parent: { database_id: process.env.DB_ID! },
+		properties: pageParametersPropertiesFactory(body)
 	})
 }
 
-export default { find }
+const find = async () => {
+	return await client.databases.query({
+		database_id: process.env.DB_ID!
+	})
+}
+
+const update = async (id: string, body: UpdateCompanyCampaignDTO) => {
+	return await client.pages.update({
+		page_id: id,
+		properties: pageParametersPropertiesFactory(body)
+	})
+}
+
+const remove = async (id: string) => {
+	return await client.pages.update({
+		page_id: id,
+		in_trash: true
+	})
+}
+
+const retrieve = async (id: string) => {
+	return await client.pages.retrieve({
+		page_id: id
+	})
+}
+
+export default { create, find, update, remove, retrieve }
