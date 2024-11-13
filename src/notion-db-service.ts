@@ -9,9 +9,10 @@ const create = async (body: CreateCompanyCampaignDTO) => {
 	})
 }
 
-const find = async () => {
+const find = async (cursor: string | undefined) => {
 	return await client.databases.query({
-		database_id: process.env.DB_ID!
+		database_id: process.env.DB_ID!,
+		start_cursor: cursor
 	})
 }
 

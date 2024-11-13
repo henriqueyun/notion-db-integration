@@ -104,12 +104,12 @@ const fieldSet: Record<string, Function>= {
             }
         }
     },
-    plannedDate: (plannedDate: Date) => {
+    plannedDate: (plannedDate: string) => {
         return {
             "PlannedDate": {
                 "type": "date",
                 "date": {
-                    "start": plannedDate.toISOString(),
+                    "start": plannedDate,
                 }
             }
         }

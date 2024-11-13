@@ -3,10 +3,9 @@ export type CreateCompanyCampaignDTO = {
     campaign: string
     content: string
     description: string
-    id?: number
     image: string
     language: string
-    plannedDate: Date
+    plannedDate: Date | string
     where: string
     imageContent: string
 }
@@ -19,7 +18,7 @@ export type UpdateCompanyCampaignDTO = {
     id?: number
     image?: string
     language?: string
-    plannedDate?: Date
+    plannedDate?: Date | string
     where?: string
     imageContent?: string
 }

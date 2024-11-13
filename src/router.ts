@@ -3,8 +3,9 @@ const router = Router()
 
 import controller from './controller'
 
-router.get('/api/v1/create', controller.create)
-router.get('/api/v1/find', controller.find)
-router.get('/api/v1/update', controller.update)
-router.get('/api/v1/remove', controller.remove)
+router.post('/company-campaign', controller.create)
+router.get('/company-campaign', controller.find)
+router.patch('/company-campaign/:id', controller.update)
+router.delete('/company-campaign/:id', controller.remove)
+
 export default router
