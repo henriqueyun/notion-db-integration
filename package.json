@@ -10,7 +10,7 @@
   },
   "name": "notion-db-integration",
   "version": "1.0.0",
-  "description": "Example of REST Web API that manipulates an Notion DB through Notion API",
+  "description": "Example of REST Web API that manipulates a Notion DB through Notion API",
   "main": "index.js",
   "dependencies": {
     "@notionhq/client": "^2.2.15",
